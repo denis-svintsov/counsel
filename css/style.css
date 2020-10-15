@@ -233,7 +233,7 @@ a:hover {
   .header-menu_show {
     background: #002f5b;
     display: flex;
-    flex: 1 1 50%;
+    flex: 0 1 50%;
     flex-direction: column;
     align-items: flex-end;
   }
@@ -252,7 +252,7 @@ a:hover {
 }
 @media (max-width: 650px) {
   .header-menu_show {
-    flex: 1 1 50%;
+    flex: 0 1 50%;
   }
 }
 
@@ -282,12 +282,12 @@ a:hover {
 
 .content-head__column {
   display: flex;
-  flex: 1 1 50%;
+  flex: 0 1 50%;
   position: relative;
 }
 @media (max-width: 650px) {
   .content-head__column {
-    flex: 1 1 100%;
+    flex: 0 1 100%;
   }
 }
 
@@ -421,7 +421,7 @@ a:hover {
 }
 
 .without-risk__column {
-  flex: 1 1 50%;
+  flex: 0 1 50%;
   align-items: center;
 }
 .without-risk__column:nth-child(2) {
@@ -531,15 +531,20 @@ a:hover {
     align-items: center;
   }
 }
+@media (max-width: 768px) {
+  .the-best__row {
+    padding: 30px 0;
+  }
+}
 
 .the-best__column {
-  flex: 1 1 50%;
+  flex: 0 1 50%;
   padding: 15px;
   position: relative;
 }
 @media (max-width: 994px) {
   .the-best__column {
-    flex: 1 1 100%;
+    flex: 0 1 100%;
     margin: 0 0 20px 0;
   }
   .the-best__column:last-child {
@@ -615,6 +620,216 @@ a:hover {
 
 .the-best-body__text {
   margin: 0 0 40px 0;
+}
+
+.consultant {
+  background: #002f5b;
+}
+
+.consultant__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  align-items: center;
+}
+@media (max-width: 650px) {
+  .consultant__row {
+    flex-direction: column;
+  }
+}
+
+.consultant__text {
+  font-family: Montserrat;
+  font-size: 21px;
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  .consultant__text {
+    font-size: 18px;
+  }
+}
+@media (max-width: 650px) {
+  .consultant__text {
+    margin: 0 0 15px 0;
+  }
+}
+@media (max-width: 500px) {
+  .consultant__text {
+    font-size: 21px;
+    text-align: center;
+  }
+}
+
+.consultant__btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 51px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #002e5b;
+}
+@media (max-width: 768px) {
+  .consultant__btn {
+    font-size: 14px;
+  }
+}
+
+.btn {
+  background: #fde428;
+  padding: 0 18px;
+  border-radius: 5px;
+}
+
+.popular {
+  background: #fff;
+  padding: 95px 0 60px 0;
+}
+@media (max-width: 768px) {
+  .popular {
+    padding: 30px 0 0 0;
+  }
+}
+
+.popular__row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popular-body {
+  max-width: 535px;
+  margin: 0 0 35px 0;
+}
+
+.popular-body__title {
+  text-align: center;
+  margin: 0 0 25px 0;
+}
+
+.popular-body__subtitle {
+  text-align: center;
+  text-transform: none;
+}
+
+.popular__row:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  margin: 0 -15px;
+  align-items: flex-start;
+}
+@media (max-width: 614px) {
+  .popular__row {
+    flex-direction: column !important;
+  }
+}
+
+.popular__column {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 33.333%;
+  margin: 0 0 30px 0;
+  padding: 0 15px;
+}
+@media (max-width: 614px) {
+  .popular__column {
+    flex: 0 1 100%;
+  }
+}
+
+.popular__image {
+  flex: 0 1 370px;
+  margin: 0 0 35px 0;
+}
+.popular__image img {
+  width: 100%;
+}
+
+.popular__title {
+  font-size: 21px;
+  margin: 0 0 25px 0;
+}
+
+.popular__text {
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.facts {
+  background: #002f5b;
+}
+
+.facts__row {
+  display: flex;
+  padding: 145px 0 115px 0;
+}
+@media (max-width: 768px) {
+  .facts__row {
+    padding: 30px 0;
+  }
+}
+@media (max-width: 614px) {
+  .facts__row {
+    flex-direction: column;
+  }
+}
+
+.facts__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 25%;
+  margin: 0 0 60px 0;
+}
+.facts__column:last-child {
+  margin: 0;
+}
+@media (max-width: 614px) {
+  .facts__column {
+    flex: 1 1 100%;
+  }
+}
+
+.facts__count {
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #ffffff;
+  margin: 0 0 30px 0;
+}
+@media (max-width: 786px) {
+  .facts__count {
+    font-size: 35px;
+  }
+}
+@media (max-width: 614px) {
+  .facts__count {
+    font-size: 48px;
+    margin: 0 0 15px 0;
+  }
+}
+
+.facts__title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+}
+@media (max-width: 786px) {
+  .facts__title {
+    font-size: 12px;
+  }
+}
+@media (max-width: 614px) {
+  .facts__title {
+    font-size: 14px;
+  }
+}
+
+.best-office {
+  background: #fff;
+  height: 100px;
+  width: 100%;
 }
 
 footer {
