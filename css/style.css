@@ -95,7 +95,7 @@ a:hover {
 }
 
 .wrapper {
-  background: #fff url(../images/head/bg_head.png) top no-repeat;
+  background: #fff url(../images/head/bg.jpg) top no-repeat;
   background-size: 100% auto;
   display: flex;
   flex-direction: column;
