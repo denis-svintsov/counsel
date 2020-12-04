@@ -73,8 +73,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
-body {
+html, body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body.lock {
+  overflow: hidden;
 }
 
 a {
@@ -95,7 +99,7 @@ a:hover {
 }
 
 .wrapper {
-  background: #fff url(../images/head/bg.jpg) top no-repeat;
+  background: #fff url(../images/head/bg_head.png) top no-repeat;
   background-size: 100% auto;
   display: flex;
   flex-direction: column;
@@ -114,20 +118,46 @@ a:hover {
 }
 
 .content {
+  padding: 200px 0 0 0;
   flex: 1 1 auto;
 }
+@media (max-width: 814px) {
+  .content {
+    padding: 100px 0 0 0;
+  }
+}
 
-.header-body {
+@media (max-width: 814px) {
+  .header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+  }
+  .header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #002f5b;
+    z-index: 3;
+  }
+}
+
+.header__body {
   color: #fff;
   margin: 0 0 100px 0;
 }
 @media (max-width: 768px) {
-  .header-body a {
+  .header__body a {
     color: #fff;
   }
 }
 @media (max-width: 842px) {
-  .header-body {
+  .header__body {
     margin: 0 0 30px 0;
   }
 }
@@ -136,32 +166,40 @@ a:hover {
   display: flex;
   justify-content: space-between;
 }
-@media (max-width: 448px) {
-  .header__row {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
-}
 
-.header-logo a:hover {
+.header__logo {
+  position: relative;
+  z-index: 5;
+}
+.header__logo img {
+  max-width: 100%;
+  display: block;
+}
+.header__logo a:hover {
   color: #fff;
 }
 
-.header-logo__title {
+.logo__title {
+  z-index: 5;
   font-family: "Montserrat", sans-serif;
   font-size: 45px;
   font-weight: 700;
   color: #fde428;
   margin: 50px 0 0 0;
 }
-@media (max-width: 448px) {
-  .header-logo__title {
-    margin: 15px 0 0 0;
+@media (max-width: 824px) {
+  .logo__title {
+    margin: 10px 0 0 0;
+  }
+}
+@media (max-width: 814px) {
+  .logo__title {
+    margin: 30px 0 0 0;
   }
 }
 
-.header-logo__subtitle {
+.logo__subtitle {
+  z-index: 5;
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -170,94 +208,154 @@ a:hover {
   padding: 5px 7px;
 }
 
-.header-menu {
+.header__row {
+  height: 120px;
+  position: relative;
   display: flex;
-  margin: 60px 0 0 0;
+  justify-content: space-between;
   align-items: center;
 }
-@media (max-width: 448px) {
-  .header-menu {
-    margin: 0;
+@media (max-width: 814px) {
+  .header__row {
+    height: 50px;
   }
 }
 
-.header-menu__list {
-  display: flex;
-  z-index: 5;
+.header__burger {
+  display: none;
 }
-.header-menu__list li {
-  font-family: "Montserrat", sans-serif;
+@media (max-width: 814px) {
+  .header__burger {
+    margin: 30px 0 0 0;
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 30px;
+    height: 20px;
+  }
+  .header__burger:before, .header__burger:after {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+  }
+  .header__burger:before {
+    top: 0;
+  }
+  .header__burger:after {
+    bottom: 0;
+  }
+  .header__burger span {
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    top: 9px;
+    transition: all 0.3s ease 0s;
+  }
+  .header__burger.active:before {
+    transform: rotate(45deg);
+    top: 9px;
+    transition: all 0.3s ease 0s;
+  }
+  .header__burger.active:after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+  }
+  .header__burger.active span {
+    transform: scale(0);
+  }
+}
+
+@media (max-width: 814px) {
+  .header__menu {
+    position: fixed;
+    overflow: auto;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #132038;
+    z-index: 2;
+    padding: 120px 20px 80px 20px;
+    transition: all 0.3s ease 0s;
+  }
+  .header__menu.active {
+    top: 0;
+  }
+}
+
+.header__list {
+  margin: 40px 0 0 0;
+  display: flex;
+  position: relative;
+  z-index: 2;
+  align-items: center;
+}
+.header__list li {
+  margin: 0 0 0 40px;
+}
+@media (max-width: 919px) {
+  .header__list {
+    margin: 40px 0 0 10px;
+  }
+  .header__list li {
+    margin: 0 0 0 20px;
+  }
+}
+@media (max-width: 824px) {
+  .header__list {
+    margin: 20px 0 0 10px;
+  }
+}
+@media (max-width: 814px) {
+  .header__list {
+    margin: 0;
+    display: block;
+  }
+  .header__list li {
+    margin: 0 0 20px 0;
+  }
+}
+
+.header__link {
+  color: #fff;
   font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin: 0px 40px 0 0;
 }
-@media (max-width: 1188px) {
-  .header-menu__list li {
-    margin: 0 20px 0 0;
+@media (max-width: 814px) {
+  .header__link {
+    font-size: 42px;
+    line-height: 52px;
+  }
+}
+@media (max-width: 425px) {
+  .header__link {
+    font-size: 32px;
+    line-height: 36px;
   }
 }
 
-@media (max-width: 842px) {
-  .header-menu__list {
-    display: none;
-  }
-
-  .header-lang {
-    display: none;
-  }
-
-  .trigger {
-    display: inline-block;
-    margin: 3px;
-    cursor: pointer;
-  }
-
-  .trigger i {
-    display: block;
-    width: 30px;
-    height: 6px;
-    margin: 4px auto;
-    background: #fff;
-  }
-  .trigger i:last-child {
+.header__lang {
+  margin: 0 0 0 30px;
+}
+.header__lang i {
+  padding: 13px 0 0 0;
+}
+@media (max-width: 814px) {
+  .header__lang {
     margin: 0;
   }
-
-  .header-menu {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
+  .header__lang i {
+    font-size: 60px;
+    padding: 0;
   }
-
-  .header-menu_show {
-    background: #002f5b;
-    display: flex;
-    flex: 0 1 50%;
-    flex-direction: column;
-    align-items: flex-end;
+  .header__lang img {
+    width: 80px;
   }
-  .header-menu_show li {
-    margin: 15px 0 0 0;
-    font-size: 18px;
-  }
-  .header-menu_show a {
-    color: #fff;
-  }
-
-  .header-lang_show {
-    display: flex;
-    margin: 15px 0 0 0;
-  }
-}
-@media (max-width: 650px) {
-  .header-menu_show {
-    flex: 0 1 50%;
-  }
-}
-
-.header-lang i {
-  padding: 13px 0 0 0;
 }
 
 .content-head {
