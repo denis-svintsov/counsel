@@ -13,7 +13,7 @@
   font-display: swap;
   src: url("../fonts/Montserrat-bold.woff") format("woff"), url("../fonts/Montserrat-bold.woff2") format("woff2");
   font-weight: 700;
-  font-style: bold;
+  font-style: normal;
 }
 
 /*Обнуление*/
@@ -1002,6 +1002,7 @@ video.close::-webkit-media-controls {
 }
 
 .contact-item__map {
+  position: relative;
   max-width: 370px;
   width: 100%;
   height: 239px;
@@ -1010,6 +1011,17 @@ video.close::-webkit-media-controls {
 .contact-item__map iframe {
   width: 100%;
   height: 100%;
+}
+
+.contact-item__map img {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .contact-item__body {
@@ -1528,18 +1540,32 @@ video.close::-webkit-media-controls {
         -ms-flex-direction: column;
             flex-direction: column;
     margin: 0;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
 
   .contact__column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding: 0;
     margin: 0 0 30px 0;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
+  }
+
+  .contact-item__map iframe {
+    display: none;
   }
 
   .contact-item__map {
     height: 170px;
+  }
+
+  .contact-item__map img {
+    display: block;
   }
 
   .contact-item__title {
